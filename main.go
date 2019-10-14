@@ -1,12 +1,13 @@
 package main
 
 import (
-	"GitSrcGo/models"
+	"GitSrcGo/controllers"
 	"fmt"
+	"net/http"
 )
 
 func main() {
-	fmt.Println("Hello Git!")
+	/*fmt.Println("Hello Git!")
 	//Talking about slice
 	arr := []int{1, 2, 3}
 	arr = append(arr, 4)
@@ -31,5 +32,16 @@ func main() {
 		LastName:  "May",
 	}
 	fmt.Println(u)
+	port := 3000
+	p, err := startWebServer(port)
+	fmt.Println(p, err)*/
+	//New demo starts from here
+	controllers.RegisterControllers()
+	http.ListenAndServe(":3000", nil)
+}
+func startWebServer(port int) (int, error) {
+	fmt.Println("Start server at port", port)
 
+	fmt.Println("Server started")
+	return port, nil
 }
